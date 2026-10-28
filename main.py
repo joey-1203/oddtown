@@ -72,4 +72,8 @@ def main(page: ft.Page):
     )
     refresh_tasks()  # 启动时把已存的任务显示出来
 
-ft.app(main)
+# 兼容不同版本的 Flet 启动方式
+if hasattr(ft, "run"):
+    ft.run(main)
+else:
+    ft.app(main)
