@@ -2,32 +2,25 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
   build-apk:
     runs-on: ubuntu-latest
-    env:
-      PYTHONUTF8: 1
-      FLET_CLI_NO_RICH_OUTPUT: 1   # 强制 Flet CLI 输出纯文本
-      UV_NO_PROGRESS: 1            # 强制 uv 隐藏进度条
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Build APK
         id: build
         uses: flet-dev/flet-build-action@v1
         with:
           target: apk
-          runner-python-version: "3.12"
-          bundled-python-version: "3.12"
-          build-number: ${{ github.run_number }}
 
       - name: Upload APK
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
-          path: ${{ steps.build.outputs.archive-path }}
+          path: build/apk/app-release.apk
           archive: false
           if-no-files-found: error
