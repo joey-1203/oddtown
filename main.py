@@ -17,13 +17,13 @@ def save_tasks(tasks):
         json.dump(tasks, f, ensure_ascii=False, indent=2)
 
 def main(page: ft.Page):
-    page.title = "每个人的长征"
+    page.title = "Odd Town"
     page.padding = 20
 
     tasks = load_tasks()  # 启动时加载
 
     task_input = ft.TextField(
-        hint_text="输入待办事项，按回车或点击添加按钮",
+        hint_text="输入待办事项，按enter或click-添加-",
         expand=True,
         on_submit=lambda e: add_task(e),
     )
