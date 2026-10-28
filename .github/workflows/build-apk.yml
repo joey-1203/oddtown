@@ -9,7 +9,9 @@ jobs:
   build-apk:
     runs-on: ubuntu-latest
     env:
-      PYTHONUTF8: 1 # 强制 Python 使用 UTF-8 编码
+      PYTHONUTF8: 1
+      FLET_CLI_NO_RICH_OUTPUT: 1   # 强制 Flet CLI 输出纯文本
+      UV_NO_PROGRESS: 1            # 强制 uv 隐藏进度条
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
