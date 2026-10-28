@@ -64,7 +64,7 @@ def main(page: ft.Page):
 
     page.add(
         ft.Row(
-            controls=[task_input, ft.ElevatedButton("添加", on_click=add_task)],
+            controls=[task_input, ft.Button(content="添加", on_click=add_task)],
             spacing=10,
         ),
         ft.Divider(),
@@ -73,7 +73,10 @@ def main(page: ft.Page):
     refresh_tasks()  # 启动时把已存的任务显示出来
 
 # 兼容不同版本的 Flet 启动方式
-if hasattr(ft, "run"):
-    ft.run(main)
-else:
-    ft.app(main)
+#if hasattr(ft, "run"):
+#    ft.run(main)
+#else:
+#    ft.app(main)
+
+#new version
+ft.run(main)

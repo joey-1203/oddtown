@@ -3,5 +3,5 @@ name = "oddtown"
 version = "0.1.0"
 requires-python = ">=3.10"
 dependencies = [
-    "flet"
+    "flet"  # 移除 ==0.28.3 的版本锁定
 ]
