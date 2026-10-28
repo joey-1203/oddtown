@@ -12,15 +12,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build APK
-        id: build
-        uses: flet-dev/flet-build-action@v1
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
         with:
-          target: apk
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flet==0.28.3
+
+      - name: Build APK
+        run: |
+          # 强制关闭颜色输出，防止任何终端解析问题
+          export FLET_CLI_NO_RICH_OUTPUT=1
+          flet build apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
+          name: oddtown-apk
           path: build/apk/app-release.apk
-          archive: false
           if-no-files-found: error
