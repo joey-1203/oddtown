@@ -8,6 +8,8 @@ on:
 jobs:
   build-apk:
     runs-on: ubuntu-latest
+    env:
+      PYTHONUTF8: 1 # 强制 Python 使用 UTF-8 编码
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
