@@ -30,7 +30,6 @@ jobs:
 
       - name: Build APK
         run: |
-          # 强制关闭颜色输出防止任何终端解析问题
           export FLET_CLI_NO_RICH_OUTPUT=1
           flet build apk --android-legacy-packaging
 
