@@ -32,7 +32,7 @@ jobs:
         run: |
           # 强制关闭颜色输出防止任何终端解析问题
           export FLET_CLI_NO_RICH_OUTPUT=1
-          flet build apk
+          flet build apk --android-legacy-packaging
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
