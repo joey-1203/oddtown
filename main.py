@@ -1,11 +1,4 @@
 import flet as ft
-
-def main(page: ft.Page):
-    page.title = "测试"
-    page.add(ft.Text("如果你看到这句话，说明打包成功！", color=ft.Colors.RED_500, size=20))
-
-ft.run(main)
-'''
 import json
 import os
 
@@ -86,5 +79,4 @@ def main(page: ft.Page):
 #    ft.app(main)
 
 #new version
-ft.run(main)
-'''
+ft.app(main)
